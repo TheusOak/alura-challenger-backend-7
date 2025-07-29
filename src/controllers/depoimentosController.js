@@ -1,5 +1,5 @@
 import mongoose from "mongoose";
-import Depoimento from "../models/depoimentosModel.js";
+import Depoimento from "../models/Depoimento.js";
 import e from "express";
 
 class DepoimentosController {
