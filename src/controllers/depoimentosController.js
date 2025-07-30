@@ -12,6 +12,19 @@ class DepoimentosController {
       
     }
   }
+
+  static async getDepoimentosRandom(req, res) {
+    try {
+      const depoimentos = await Depoimento.aggregate([{ $sample: { size: 3 } }]);
+      if(!depoimentos || depoimentos.length === 0) {
+        return res.status(404).json({ message: "No depoimentos found" });
+      }
+      res.status(200).json(depoimentos);
+    } catch (error) {
+      res.status(500).json({ message: "Error fetching random depoimentos", error: error.message });
+    }
+  }
+
   static async createDepoimento(req, res) {
     try {
       const newDepoimento = new Depoimento(req.body);

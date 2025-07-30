@@ -4,6 +4,7 @@ import depoimentosController from '../controllers/depoimentosController.js';
 const router = express.Router();
 
 router.get('/', depoimentosController.getDepoimentos);
+router.get('/home', depoimentosController.getDepoimentosRandom);
 router.post('/', depoimentosController.createDepoimento);
 router.put('/:id', depoimentosController.updateDepoimento);
 router.delete('/:id', depoimentosController.deleteDepoimento);
